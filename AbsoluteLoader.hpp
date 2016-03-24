@@ -36,7 +36,7 @@ public:
 
 	/* read the object program from the 
 	 * object file */
-	void ReadObjectCode() {
+	void ReadObjectCode() const {
 		Inp.open("OBJECT.txt");
 		Out.open("OUTPUT.txt");
 		
@@ -70,7 +70,7 @@ public:
 	}
 
 	/* load the obect program into the memory */
-	void LoadIntoMemory() {
+	void LoadIntoMemory() const {
 
 		OutputStyle();
 
