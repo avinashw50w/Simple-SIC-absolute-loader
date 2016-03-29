@@ -22,11 +22,11 @@ public:
 			   MemoryFile(File){
 			   /* */
 			   mFile = CreateFileA(MemoryFile.c_str(),             // path of the file
-					       GENERIC_READ | GENERIC_WRITE,  // allow access to read or write
-					       FILE_SHARE_READ,		     // share fole to read
-					       NULL,		       	   // no security attributes
-					       CREATE_ALWAYS,		  // open the existing file
-					       FILE_ATTRIBUTE_NORMAL,    // default attribute
+					       GENERIC_READ | GENERIC_WRITE,   // allow access to read or write
+					       FILE_SHARE_READ,		       // share fole to read
+					       NULL,		       	       // no security attributes
+					       CREATE_ALWAYS,		       // open the existing file
+					       FILE_ATTRIBUTE_NORMAL,          // default attribute
 					       NULL);
 
 			if(mFile == NULL){
