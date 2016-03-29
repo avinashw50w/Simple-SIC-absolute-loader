@@ -8,10 +8,10 @@
 /* to check the validity of the object file */
 bool IsValid(int Digit1, int Digit2) {
 	return (('0'<=Digit1 and Digit1<='9') or 
-		    ('A'<=Digit1 and Digit1<='F'))
-						 and
-		   (('0'<=Digit2 and Digit2<='9') or 
-		    ('A'<=Digit2 and Digit2<='F'));
+		('A'<=Digit1 and Digit1<='F'))
+			     and
+	       (('0'<=Digit2 and Digit2<='9') or 
+		('A'<=Digit2 and Digit2<='F'));
 }
 
 /* convert each hexadecimal character to its
@@ -19,8 +19,8 @@ bool IsValid(int Digit1, int Digit2) {
  * digit with 0xf, i.e. with 1111 */
 unsigned char ConstructHalfByte(int Digit) {
 	assert(('0'<=Digit and Digit<='9') 
-					   or
-		   ('A'<=Digit and Digit<='F'));
+			   or
+	       ('A'<=Digit and Digit<='F'));
 
 	if('0'<=Digit and Digit<='9')
 		return (Digit - 48) & 0xf;
