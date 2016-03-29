@@ -22,23 +22,23 @@ public:
 			   MemoryFile(File){
 			   /* */
 			   mFile = CreateFileA(MemoryFile.c_str(),             // path of the file
-								   GENERIC_READ | GENERIC_WRITE,   // allow access to read or write
-								   FILE_SHARE_READ,				   // share fole to read
-								   NULL,						   // no security attributes
-								   CREATE_ALWAYS,				   // open the existing file
-								   FILE_ATTRIBUTE_NORMAL,		   // default attribute
-								   NULL);
+					       GENERIC_READ | GENERIC_WRITE,  // allow access to read or write
+					       FILE_SHARE_READ,		     // share fole to read
+					       NULL,		       	   // no security attributes
+					       CREATE_ALWAYS,		  // open the existing file
+					       FILE_ATTRIBUTE_NORMAL,    // default attribute
+					       NULL);
 
 			if(mFile == NULL){
 				throw string("Unable to call CreateFileA()");
 			}					
 
-			mFileMappingObject = CreateFileMapping(mFile,			  				// File handle
-												   NULL,			  				// default security
-												   PAGE_READWRITE,    				// allow memory read-write permission
-												   0,								// maximum object size (high-order DWORD)
-												   static_cast<DWORD>(MemorySize),  // maximum object size (low-order DWORD)
-												   NULL);							// no name for the mapping object
+			mFileMappingObject = CreateFileMapping(mFile,			        // File handle
+							       NULL,			  	// default security
+							       PAGE_READWRITE,    		// allow memory read-write permission
+							       0,				// maximum object size (high-order DWORD)
+							       static_cast<DWORD>(MemorySize),  // maximum object size (low-order DWORD)
+							       NULL);				// no name for the mapping object
 
 
 			if(mFileMappingObject == NULL){
@@ -46,11 +46,11 @@ public:
 				throw string("Unable to call CreateFileMapping()");
 			}
 
-			ViewPtr = MapViewOfFile(mFileMappingObject,		// the file Mapping object handler
-									FILE_MAP_WRITE,			// to map a read-write view of the file
-									0,						// A high-order DWORD of the file offset where the view begins
-									0,						// A low-order DWORD of the file offset where the view is to begin
-									0); 					// no of bytes to map to the view, here 0 means all the bytes of the file
+			ViewPtr = MapViewOfFile(mFileMappingObject,	// the file Mapping object handler
+						FILE_MAP_WRITE,		// to map a read-write view of the file
+						0,			// A high-order DWORD of the file offset where the view begins
+						0,			// A low-order DWORD of the file offset where the view is to begin
+						0); 			// no of bytes to map to the view, here 0 means all the bytes of the file
 
 			if(ViewPtr == NULL){
 				CloseHandle(mFileMappingObject);
