@@ -19,20 +19,16 @@ using namespace std;
 
 #include "AbsoluteLoader.hpp"
 
-#define INPUT_NAME
-
 int main() {
 	try {
 		int MEM_SZ = 0x8000;              // total memory of an SIC machine is 2^15 ,i.e.,0x8000
 		string FileName = "OBJECT.txt";   //  default file name
 		string MemoryName = "COPY";       // default program name
 
-		#ifdef INPUT_NAME
 		cout << "\nEnter the object file name : ";
 		cin >> FileName;
 		cout << "\nEnter the name of the program : ";
 		cin >> MemoryName;
-		#endif
 
 		AbsoluteLoader Loader(MEM_SZ,FileName,MemoryName);
 
